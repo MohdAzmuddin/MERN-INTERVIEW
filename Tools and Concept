@@ -1,0 +1,452 @@
+## 1. What is the MERN Stack?
+MERN stands for:
+* **M** → MongoDB
+* **E** → Express.js
+* **R** → React.js
+* **N** → Node.js
+
+Flow:
+React → Express → Node → MongoDB
+
+## 2. How does the MERN stack work?
+1. User interacts with React frontend.
+2. React sends API requests.
+3. Express handles routes.
+4. Node.js executes server logic.
+5. MongoDB stores/retrieves data.
+6. Response is sent back to React.
+
+## 3. What is REST API?
+REST (Representational State Transfer) is a set of rules for communication between client and server.
+
+Example:
+```http
+GET /users
+POST /users
+PUT /users/1
+DELETE /users/1
+
+## 4. Difference between GET and POST?
+| GET            | POST         |
+| -------------- | ------------ |
+| Fetch Data     | Send Data    |
+| Visible in URL | Data in Body |
+| Less Secure    | More Secure  |
+
+Example:
+GET /users
+```
+POST /users
+```
+## 5. Difference between PUT and PATCH?
+### PUT
+Updates the entire resource.
+
+PUT /users/1
+```
+### PATCH
+Updates specific fields only.
+
+PATCH /users/1
+```
+
+## 6. What is JWT?
+JWT (JSON Web Token) is used for authentication.
+
+Structure:
+Header.Payload.Signature
+``
+Generate Token:
+const token = jwt.sign(
+  {id:user._id},
+  "secretKey"
+);
+```
+## 7. What is Authentication?
+Authentication verifies the identity of a user.
+Examples:
+* Login
+* OTP
+* JWT
+* OAuth
+
+## 8. What is Authorization?
+Authorization determines what a user is allowed to do.
+Example:
+
+Admin → Read, Write, Delete
+User → Read Only
+
+## 9. Difference between Authentication and Authorization?
+| Authentication | Authorization                |
+| -------------- | ---------------------------- |
+| Who are you?   | What can you do?             |
+| Login          | Permissions                  |
+| Happens first  | Happens after authentication |
+
+## 10. What is Axios?
+Axios is an HTTP client used to call APIs.
+
+Install:
+npm install axios
+
+Example:
+
+import axios from "axios";
+
+axios.get("/api/users")
+.then(res => console.log(res.data));
+```
+## 11. What is CORS?
+CORS (Cross-Origin Resource Sharing) allows requests from different domains.
+
+Backend:
+const cors = require("cors");
+
+app.use(cors());
+```
+## 12. What is MVC Architecture?
+MVC stands for:
+### Model
+Database logic.
+
+### View
+UI.
+
+### Controller
+Business logic.
+
+Structure:
+Model
+  ↓
+Controller
+  ↓
+View
+
+## 13. What is CRUD?
+
+CRUD Operations:
+| Operation | Method    |
+| --------- | --------- |
+| Create    | POST      |
+| Read      | GET       |
+| Update    | PUT/PATCH |
+| Delete    | DELETE    |
+
+Example:
+```http
+POST /users
+GET /users
+PUT /users/1
+DELETE /users/1
+```
+
+## 14. How do you connect MongoDB with Node.js?
+Install:
+npm install mongoose
+```
+Connection:
+const mongoose = require("mongoose");
+
+mongoose.connect(
+ "mongodb://localhost:27017/mydb"
+)
+.then(()=>console.log("Connected"));
+
+
+## 15. What is Mongoose?
+Mongoose is an ODM (Object Data Modeling) library for MongoDB.
+
+Schema Example:
+```js
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+   name:String,
+   age:Number
+});
+
+module.exports =
+mongoose.model("User", userSchema);
+
+# Most Asked HR + MERN Interview Questions
+### Why MERN Stack?
+* JavaScript everywhere
+* Fast development
+* Large community support
+* High demand in industry
+
+### What are your strengths?
+* Problem-solving
+* Quick learner
+* Teamwork
+* Consistency
+
+### What are your weaknesses?
+> Sometimes I spend extra time perfecting solutions, but I am learning to balance quality and deadlines.
+
+### Why should we hire you?
+
+> I have strong fundamentals in programming, knowledge of the MERN stack, and a passion for learning new technologies. 
+I can contribute effectively while continuously improving my skills.
+
+
+
+# Tools & Concepts Interview Questions & Answers
+## 1. What is Git?
+Git is a **version control system** used to track changes in source code.
+
+### Benefits:
+* Tracks code history
+* Supports teamwork
+* Easy rollback
+
+## 2. What is GitHub?
+GitHub is a cloud platform used to store and manage Git repositories.
+
+### Features:
+* Code hosting
+* Collaboration
+* Pull Requests
+* Issue Tracking
+
+## 3. Difference between Git and GitHub?
+| Git                    | GitHub                 |
+| ---------------------- | ---------------------- |
+| Version Control System | Cloud Hosting Platform |
+| Works locally          | Works online           |
+| Tracks code changes    | Stores repositories    |
+
+## 4. What is a Repository?
+A repository (repo) is a storage location for project files and code.
+
+git init
+Creates a new repository.
+
+## 5. Common Git Commands
+### Initialize Repository
+git init
+
+### Check Status
+git status
+
+### Add Files
+git add .
+```
+### Commit Changes
+git commit -m "Initial Commit"
+```
+### View History
+git log
+```
+### Push Code
+git push origin main
+```
+### Pull Code
+git pull origin main
+
+## 6. What is a Commit?
+A commit is a saved snapshot of project changes.
+git commit -m "Added Login Page"
+
+## 7. What is Branching in Git?
+Branches allow developers to work on features independently.
+
+### Create Branch
+git branch feature-login
+
+### Switch Branch
+git checkout feature-login
+or
+git switch feature-login
+
+## 8. What is Merge?
+Merge combines changes from one branch into another.
+
+git merge feature-login
+
+## 9. What is a Pull Request (PR)?
+A Pull Request is a request to merge code into another branch.
+
+Workflow:
+Developer → PR → Review → Merge
+
+## 10. What is npm?
+npm (Node Package Manager) is used to install and manage packages.
+
+### Initialize Project
+npm init -y
+
+### Install Package
+npm install express
+
+## 11. Difference between Dependencies and DevDependencies?
+### Dependencies
+Needed in production.
+
+npm install express
+
+### DevDependencies
+Needed only during development.
+
+npm install nodemon --save-dev
+`
+## 12. What is Webpack?
+Webpack is a module bundler that combines project files into optimized bundles.
+
+### Benefits:
+* Faster loading
+* Bundling
+* Optimization
+
+## 13. What is Babel?
+Babel converts modern JavaScript into older JavaScript versions supported by browsers.
+
+Example:
+const add = (a,b) => a+b;
+
+Converted into ES5-compatible code.
+
+## 14. What is CI/CD?
+### CI (Continuous Integration)
+Automatically tests code after changes.
+
+### CD (Continuous Deployment)
+Automatically deploys code after testing.
+
+Flow:
+Code → Test → Build → Deploy
+
+## 15. What is Docker?
+Docker is a containerization tool used to package applications with all dependencies.
+
+### Benefits:
+* Portable
+* Consistent environment
+* Easy deployment
+
+## 16. What is API?
+API (Application Programming Interface) allows communication between applications.
+
+Example:
+Frontend ↔ Backend ↔ Database
+
+## 17. What is JSON?
+JSON (JavaScript Object Notation) is a lightweight data format.
+
+```json
+{
+  "name": "Azmuddin",
+  "age": 23
+}
+
+## 18. What is HTTP?
+HTTP (HyperText Transfer Protocol) is used for communication between client and server.
+
+## 19. Common HTTP Methods
+
+| Method | Purpose             |
+| ------ | ------------------- |
+| GET    | Fetch Data          |
+| POST   | Create Data         |
+| PUT    | Update Entire Data  |
+| PATCH  | Update Partial Data |
+| DELETE | Delete Data         |
+
+---
+
+## 20. Common HTTP Status Codes
+
+| Code | Meaning               |
+| ---- | --------------------- |
+| 200  | OK                    |
+| 201  | Created               |
+| 400  | Bad Request           |
+| 401  | Unauthorized          |
+| 403  | Forbidden             |
+| 404  | Not Found             |
+| 500  | Internal Server Error |
+
+---
+
+## 21. What is Local Storage?
+Stores data in browser permanently.
+
+```js
+localStorage.setItem("name","Azmuddin");
+
+localStorage.getItem("name");
+```
+## 22. What is Session Storage?
+Stores data until browser tab is closed.
+
+```js
+sessionStorage.setItem("user","Ali");
+
+## 23. Difference between Local Storage and Session Storage?
+| Local Storage      | Session Storage          |
+| ------------------ | ------------------------ |
+| Permanent          | Temporary                |
+| Larger lifetime    | Removed after tab closes |
+| Shared across tabs | Tab-specific             |
+
+## 24. What is Cookie?
+Cookies store small pieces of data in the browser.
+
+Uses:
+* Authentication
+* User Preferences
+* Session Management
+
+## 25. What is Responsive Design?
+Responsive design makes websites adapt to different screen sizes.
+Example:
+```css
+@media(max-width:768px){
+   body{
+      font-size:14px;
+   }
+}
+
+### What is REST API?
+A set of rules for client-server communication.
+
+### What is JWT?
+A token-based authentication mechanism.
+
+### What is Middleware?
+A function executed between request and response.
+
+### What is State?
+Data managed by a React component.
+
+### What is Props?
+Data passed from parent to child component.
+
+### What is useEffect()?
+A React Hook used for side effects.
+
+### What is Event Loop?
+Mechanism that handles asynchronous operations in Node.js.
+
+### What is Closure?
+A function that remembers variables from its outer scope.
+
+### What is Hoisting?
+JavaScript moves declarations to the top before execution.
+
+### What is Virtual DOM?
+A lightweight copy of the real DOM used by React for faster updates.
+
+## Top 10 One-Line Interview Answers
+
+1. **MongoDB** → NoSQL document database.
+2. **Express.js** → Backend framework for Node.js.
+3. **React.js** → UI library for building interfaces.
+4. **Node.js** → JavaScript runtime environment.
+5. **JWT** → Token-based authentication.
+6. **REST API** → Client-server communication architecture.
+7. **Git** → Version control system.
+8. **GitHub** → Cloud platform for Git repositories.
+9. **Mongoose** → ODM library for MongoDB.
+10. **npm** → Package manager for Node.js.
