@@ -1,0 +1,259 @@
+### 1. What is the difference between `var`, `let`, and `const`?
+
+| var               | let                  | const                |
+| ----------------- | -------------------- | -------------------- |
+| Function scoped   | Block scoped         | Block scoped         |
+| Can be redeclared | Cannot be redeclared | Cannot be redeclared |
+| Can be updated    | Can be updated       | Cannot be updated    |
+
+```js
+var a = 10;
+
+let b = 20;
+b = 30;
+
+const c = 40;
+// c = 50 ❌ Error
+```
+### 2. What are Closures in JavaScript?
+A closure is a function that remembers variables from its outer scope even after the outer function has finished executing.
+
+```js
+function outer() {
+    let count = 0;
+
+    return function inner() {
+        count++;
+        console.log(count);
+    };
+}
+
+const fun = outer();
+
+fun(); // 1
+fun(); // 2
+```
+
+**Uses:**
+* Data hiding
+* Counters
+* Callbacks
+
+### 3. What is Hoisting?
+Hoisting means JavaScript moves variable and function declarations to the top of their scope before execution.
+
+```js
+console.log(a);
+
+var a = 10;
+```
+
+Internally:
+
+```js
+var a;
+console.log(a);
+a = 10;
+```
+
+Output:
+
+```text
+undefined
+```
+
+### 4. What is the `this` keyword?
+`this` refers to the object that calls the function.
+
+```js
+const user = {
+   name: "Azmuddin",
+   show() {
+      console.log(this.name);
+   }
+};
+
+user.show();
+```
+Output:
+Azmuddin
+
+### 5. Difference between `==` and `===`?
+**== (Loose Equality)**
+Checks value only.
+
+```js
+console.log(5 == "5"); // true
+
+**=== (Strict Equality)**
+Checks value and datatype.
+
+```js
+console.log(5 === "5"); //false
+
+### 6. What are Promises?
+A Promise represents the eventual completion or failure of an asynchronous operation.
+
+States:
+* Pending
+* Fulfilled
+* Rejected
+
+```js
+const promise = new Promise((resolve, reject) => {
+    resolve("Success");
+});
+
+promise.then(data => console.log(data));
+
+### 7. What is Async/Await?
+A cleaner way to handle Promises.
+
+```js
+async function getData() {
+    return "Hello";
+}
+
+getData().then(console.log);
+```
+
+Using `await`:
+
+```js
+async function fetchData() {
+   let data = await Promise.resolve("Success");
+   console.log(data);
+}
+
+### 8. What is Event Delegation?
+Event Delegation means attaching a single event listener to a parent element instead of multiple child elements.
+
+```js
+document.getElementById("parent")
+.addEventListener("click", function(event){
+    console.log(event.target);
+});
+```
+
+**Benefits:**
+* Better performance
+* Less memory usage
+
+### 9. Difference between Deep Copy and Shallow Copy?
+### Shallow Copy
+
+Copies only first level.
+
+```js
+const obj1 = {name:"Ali"};
+
+const obj2 = {...obj1};
+```
+
+Nested objects are still shared.
+
+---
+
+### Deep Copy
+
+Creates completely independent copies.
+
+```js
+const obj2 = structuredClone(obj1);
+```
+
+or
+
+```js
+const obj2 = JSON.parse(JSON.stringify(obj1));
+```
+### 10. What is Debounce and Throttle?
+### Debounce
+Executes function only after a delay.
+
+```js
+function debounce(fn, delay){
+    let timer;
+
+    return function(){
+        clearTimeout(timer);
+
+        timer = setTimeout(()=>{
+            fn();
+        }, delay);
+    };
+}
+```
+**Use:** Search box.
+
+### Throttle
+Executes function at fixed intervals.
+
+```js
+function throttle(fn, delay){
+    let flag = true;
+
+    return function(){
+        if(flag){
+            fn();
+            flag = false;
+
+            setTimeout(()=>{
+                flag = true;
+            }, delay);
+        }
+    };
+}
+**Use:** Scroll events.
+
+# JavaScript Quick Revision (Most Asked)
+### Primitive Data Types
+
+```js
+String
+Number
+Boolean
+Undefined
+Null
+BigInt
+Symbol
+```
+
+### Array Methods
+
+```js
+push()
+pop()
+shift()
+unshift()
+map()
+filter()
+reduce()
+forEach()
+find()
+sort()
+```
+
+### String Methods
+
+length
+substring()
+slice()
+split()
+replace()
+toUpperCase()
+toLowerCase()
+trim()
+
+
+### ES6 Features
+let
+const
+Arrow Functions
+Template Literals
+Destructuring
+Spread Operator
+Rest Operator
+Promises
+Async/Await
+Modules
