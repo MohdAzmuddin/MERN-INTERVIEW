@@ -1,0 +1,190 @@
+### 1. What is React?
+React is a **JavaScript library** used to build fast and interactive user interfaces (UI).
+
+### 2. What are the features of React?
+* Component-based architecture
+* Virtual DOM
+* Reusable components
+* One-way data binding
+* Fast rendering
+
+### 3. What is JSX?
+JSX (JavaScript XML) allows writing HTML-like code inside JavaScript.
+
+```jsx
+const element = <h1>Hello World</h1>;
+
+### 4. What are components in React?
+Components are reusable pieces of UI.
+
+```jsx
+function Welcome() {
+   return <h1>Hello</h1>;
+}
+
+### 5. Difference between Functional and Class Components?
+
+**Functional Component**
+
+```jsx
+function App() {
+   return <h1>Hello</h1>;
+}
+
+**Class Component**
+
+```jsx
+class App extends React.Component {
+   render() {
+      return <h1>Hello</h1>;
+   }
+}
+```
+| Functional | Class                  |
+| ---------- | ---------------------- |
+| Simpler    | More complex           |
+| Uses Hooks | Uses Lifecycle Methods |
+| Preferred  | Older approach         |
+
+
+### 6. What are Props in React?
+Props are used to pass data from parent to child components.
+
+```jsx
+function User(props){
+   return <h1>{props.name}</h1>;
+}
+
+Usage:
+```jsx
+<User name="Azmuddin" />
+
+### 7. What is State in React?
+State stores data that can change over time.
+
+```jsx
+const [count, setCount] = useState(0);
+`
+### 8. Difference between State and Props?
+| State                    | Props              |
+| ------------------------ | ------------------ |
+| Mutable                  | Immutable          |
+| Managed inside component | Passed from parent |
+| Can change               | Read-only          |
+
+### 9. What is React Router?
+React Router enables navigation between pages without reloading.
+npm install react-router-dom
+```
+```jsx
+<Route path="/about" element={<About />} />
+```
+### 10. What are Hooks in React?
+Hooks allow functional components to use React features such as state and lifecycle methods.
+
+Common Hooks:
+* useState
+* useEffect
+* useContext
+* useRef
+* useMemo
+
+### 11. What are the most used React Hooks?
+#### useState()
+
+```jsx
+const [count, setCount] = useState(0);
+``
+#### useEffect()
+
+```jsx
+useEffect(() => {
+   console.log("Mounted");
+}, []);
+```
+
+#### useContext()
+
+```jsx
+const value = useContext(MyContext);
+```
+### 12. What is Virtual DOM?
+Virtual DOM is a lightweight copy of the real DOM.
+
+Process:
+1. React creates Virtual DOM.
+2. Compares old and new Virtual DOM.
+3. Updates only changed parts in the real DOM.
+
+This improves performance.
+
+### 13. Difference between Controlled and Uncontrolled Components?
+**Controlled Component**
+
+```jsx
+const [name, setName] = useState("");
+
+<input
+ value={name}
+ onChange={(e)=>setName(e.target.value)}
+/>
+```
+React controls the form data.
+
+-
+**Uncontrolled Component**
+
+```jsx
+const inputRef = useRef();
+
+<input ref={inputRef}/>
+```
+DOM controls the form data.
+
+
+### 14. How does useEffect() work?
+Runs side effects such as:
+
+* API calls
+* Timers
+* Event listeners
+
+```jsx
+useEffect(() => {
+   console.log("Component Mounted");
+}, []);
+```
+
+Dependency Array:
+```jsx
+
+useEffect(() => {
+   console.log(count);
+}, [count]);
+```
+Runs when `count` changes.
+
+### 15. What is Context API?
+Context API is used to share data globally without prop drilling.
+
+const UserContext = createContext();
+```
+Provider:
+```jsx
+<UserContext.Provider value="Azmuddin">
+   <App />
+</UserContext.Provider>
+```
+
+Consumer:
+
+```jsx
+const user = useContext(UserContext);
+# Common React Commands
+---npx create-react-app app-name
+---npm start
+---npm run build
+---npm install react-router-dom
+---npm install axios
+
+
