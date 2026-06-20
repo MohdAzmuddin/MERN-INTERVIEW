@@ -1,0 +1,122 @@
+### 1. What is MongoDB?
+MongoDB is a **NoSQL document-oriented database** that stores data in JSON-like documents called BSON.
+
+### 2. What are the features of MongoDB?
+* Schema-less database
+* High performance
+* Scalability
+* Replication
+* Indexing
+* Aggregation framework
+
+### 3. Difference between SQL and NoSQL?
+| SQL               | NoSQL              |
+| ----------------- | ------------------ |
+| Tables            | Collections        |
+| Rows              | Documents          |
+| Fixed schema      | Flexible schema    |
+| MySQL, PostgreSQL | MongoDB, Cassandra |
+
+### 4. What is a document in MongoDB?
+A document is a single record stored as a JSON-like object.
+
+Example:
+```json
+{
+  "name": "Azmuddin",
+  "age": 23
+}
+```
+
+### 5. What is a collection in MongoDB?
+A collection is a group of documents, similar to a table in SQL.
+
+### 6. Difference between insertOne() and insertMany()?
+
+db.users.insertOne({name:"Ali"});
+Inserts one document.
+
+```js
+db.users.insertMany([
+ {name:"Ali"},
+ {name:"Ahmed"}
+]);
+Inserts multiple documents.
+
+### 7. Difference between find() and findOne()?
+
+```js
+db.users.find()
+```
+Returns all matching documents.
+
+```js
+db.users.findOne()
+```
+Returns only the first matching document.
+
+### 8. What are indexes in MongoDB?
+Indexes improve query performance by reducing search time.
+
+```js
+db.users.createIndex({name:1})
+```
+
+### 9. What is aggregation?
+Used for data processing and calculations.
+
+```js
+db.sales.aggregate([
+ {$group:{_id:null,total:{$sum:"$amount"}}}
+])
+```
+### 10. Difference between $match and $filter?
+* `$match` filters documents in an aggregation pipeline.
+* `$filter` filters elements inside an array.
+
+### 11. What is normalization and denormalization?
+**Normalization**
+* Stores data separately.
+* Reduces redundancy.
+
+**Denormalization**
+* Embeds related data together.
+* Faster reads.
+
+### 12. What is sharding?
+Sharding distributes data across multiple servers to handle large datasets.
+
+### 13. What is replication?
+Replication creates copies of data across servers for high availability.
+
+### 14. How does MongoDB handle transactions?
+MongoDB supports ACID transactions using:
+
+```js
+session.startTransaction();
+```
+
+### 15. How does MongoDB handle transactions?
+Transactions ensure that multiple operations either:
+
+* All succeed
+* Or all fail
+This maintains data consistency.
+
+## Common MongoDB Commands
+
+```js
+show dbs
+use mydb
+show collections
+
+db.users.find()
+db.users.insertOne({name:"Ali"})
+db.users.updateOne(
+ {name:"Ali"},
+ {$set:{age:23}}
+)
+
+db.users.deleteOne({name:"Ali"})
+
+Reply **"Next"** and I'll provide the **Express.js 15 Questions with answers**, then React.js, Node.js, JavaScript, Full Stack MERN, and Tools & Concepts sections.
