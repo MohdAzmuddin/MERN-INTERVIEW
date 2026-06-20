@@ -1,0 +1,196 @@
+### 1. What is Node.js?
+Node.js is a **JavaScript runtime environment** built on Chrome's V8 engine that allows JavaScript to run outside the browser.
+
+```js
+console.log("Hello Node.js");
+```
+### 2. What are the features of Node.js?
+* Asynchronous
+* Event-driven
+* Non-blocking I/O
+* Single-threaded
+* Fast execution using V8 Engine
+* Scalable
+
+### 3. Difference between Node.js and JavaScript?
+
+| JavaScript           | Node.js             |
+| -------------------- | ------------------- |
+| Programming Language | Runtime Environment |
+| Runs in Browser      | Runs on Server      |
+| DOM available        | DOM not available   |
+
+### 4. What is the Event Loop in Node.js?
+The Event Loop handles asynchronous operations and executes callbacks when tasks are completed.
+
+**Flow:**
+Call Stack → Web APIs → Callback Queue → Event Loop
+
+### 5. What is Non-blocking I/O?
+Node.js does not wait for one task to finish before starting another.
+
+```js
+const fs = require("fs");
+
+fs.readFile("test.txt","utf8",(err,data)=>{
+   console.log(data);
+});
+
+console.log("Finished");
+```
+
+Output:
+Finished
+(file content)
+
+### 6. What is package.json?
+It is the configuration file of a Node.js project.
+
+Contains:
+* Project name
+* Version
+* Dependencies
+* Scripts
+
+Example:
+
+```json
+{
+  "name": "myapp",
+  "version": "1.0.0"
+}
+
+### 7. Difference between require() and import?
+
+**require()**
+```js
+const express = require("express");
+```
+CommonJS module system.
+
+**import**
+
+```js
+import express from "express";
+```
+ES6 module system.
+
+### 8. How does Node.js handle concurrency?
+Using:
+* Event Loop
+* Callback Queue
+* Async Operations
+
+Node.js can handle many requests simultaneously without creating multiple threads.
+
+### 9. What are Streams in Node.js?
+Streams process data piece by piece instead of loading everything into memory.
+
+Types:
+1. Readable Stream
+2. Writable Stream
+3. Duplex Stream
+4. Transform Stream
+Example:
+
+```js
+const fs = require("fs");
+
+const stream = fs.createReadStream("file.txt");
+``
+### 10. What is the use of module?
+Modules help organize code into reusable files.
+
+Example:
+
+**math.js**
+
+```js
+module.exports.add = (a,b)=>a+b;
+```
+
+**app.js**
+
+```js
+const math = require("./math");
+
+console.log(math.add(2,3));
+```
+
+### 11. Difference between process.nextTick() and setImmediate()?
+**process.nextTick()**
+Runs before the next event loop phase.
+
+```js
+process.nextTick(()=>{
+   console.log("nextTick");
+});
+```
+
+**setImmediate()**
+Runs in the next event loop iteration.
+
+```js
+setImmediate(()=>{
+   console.log("Immediate");
+});
+
+### 12. What are Buffers in Node.js?
+Buffers store binary data temporarily.
+
+```js
+const buffer = Buffer.from("Hello");
+
+console.log(buffer);
+```
+
+Used for:
+* Files
+* Images
+* Network data
+
+### 13. How do you handle errors in Node.js?
+Using try-catch:
+
+```js
+try{
+   let x = y;
+}
+catch(err){
+   console.log(err.message);
+}
+
+### 14. What is Clustering in Node.js?
+Clustering allows Node.js to use multiple CPU cores.
+
+```js
+const cluster = require("cluster");
+```
+
+Benefits:
+* Better performance
+* Higher scalability
+
+### 15. What is an Environment Variable?
+Environment variables store configuration values outside the code.
+
+Example:
+
+```env
+PORT=5000
+DB_URL=mongodb://localhost:27017
+```
+
+Access:
+
+```js
+console.log(process.env.PORT);
+
+
+# Common Node.js Commands
+---node app.js
+---npm init -y
+---npm install
+---npm install nodemon
+---npx nodemon app.js
+```
