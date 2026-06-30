@@ -3,7 +3,7 @@ Express.js is a **Node.js web framework** used to build web applications and RES
 
 ```js
 const express = require("express");
-const app = express();
+const app = express();K
 ```
 ### 2. What are the features of Express.js?
 * Fast and lightweight
